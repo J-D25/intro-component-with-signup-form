@@ -23,21 +23,21 @@
         </div>
         <div id="right">
 
-            <form name="formulaire" action="#">
+            <form name="formulaire" id="form" action="#">
                 <p id="right_tryit">Try it free 7 days then $20/mo. thereafter</p>
                 <label for="form_firstname ">First Name</label>
-                <input type="text " id="form_firstname ">
+                <input type="text" id="form_firstname" name="form_firstname">
 
                 <label for="form_lastname ">Last Name</label>
-                <input type="text " id="form_lastname ">
+                <input type="text" id="form_lastname" name="form_lastname">
 
                 <label for="form_email ">Email Address</label>
-                <input type="email " id="form_email ">
+                <input type="email" id="form_email" name="form_email">
 
                 <label for="form_password ">Password</label>
-                <input type="password " id="form_password ">
+                <input type="password" id="form_password" name="form_password">
 
-                <input id="form_validate" type="button" value="Claim your free trial ">
+                <input id="form_validate" type="button" value="Claim your free trial " onsubmit="required()">
                 <p>By clicking the button, you are agreeing to our
                     <a href="# ">Terms and Services</a></p>
             </form>
