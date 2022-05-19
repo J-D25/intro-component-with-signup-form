@@ -44,13 +44,17 @@ main {
 form {
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
+    gap: 1rem;
     background-color: hsl(0, 0%, 100%);
     color: hsl(0, 0%, 0%);
     border-radius: 0.5rem;
     padding: 2rem;
     border: hsl(246, 25%, 77%) solid 1px;
     box-shadow: rgb(0 0 0 / 25%) 0 0.4rem 0;
+}
+
+form label {
+    display: none;
 }
 
 form input {
@@ -75,6 +79,7 @@ form input:focus-visible {
     border-radius: 0.25rem;
     text-transform: uppercase;
     padding: 0.8rem;
+    justify-content: center;
 }
 
 #form_validate:hover {
