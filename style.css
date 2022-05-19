@@ -53,6 +53,7 @@ form input {
     color: hsl(0, 0%, 25%);
     font-weight: 600;
     padding: 0.9rem;
+    display: flex;
 }
 
 form input:focus-visible {
