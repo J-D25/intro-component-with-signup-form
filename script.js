@@ -1,4 +1,4 @@
-const form = document.querySelector('#form')
+const form = document.querySelector('form')
 const firstName = document.querySelector('#form_firstname');
 const lastName = document.querySelector('#form_lastname');
 const email = document.querySelector('#form_email');
@@ -14,14 +14,15 @@ const button = document.querySelector('#form_validate');
     span_lastName.appendChild(text_lastName_span);
 
     const span_email = document.createElement("SPAN");
-    const text_email_span = document.createTextNode("email cannot be empty");
+    const text_email_span = document.createTextNode("Look like this is not an email");
     span_email.appendChild(text_email_span);
 
     const span_password = document.createElement("SPAN");
     const text_password_span = document.createTextNode("Password cannot be empty");
     span_password.appendChild(text_password_span);
 
-
+    console.log(email.validity);
+   
 
 button.addEventListener("click", required)
 
@@ -33,30 +34,32 @@ function required(event) {
         var email_value = document.forms["formulaire"]["form_email"].value;
         var password_value = document.forms["formulaire"]["form_password"].value;
 
-        if (firstName_value == "") {
-            
+        if (firstName_value == "") {  
             form.replaceChild(span_firstName, firstName.nextSibling );
-        
         } else {
             span_firstName.remove(); 
         }
 
         if (lastName_value == "") {
-            
             form.replaceChild(span_lastName, lastName.nextSibling );
         } else {
             span_lastName.remove(); 
+            console.log(email.validity);
         }
 
-        if (email_value == "") {
-            
+        if (lastName_value == "") {
+            span_email.remove();
             form.replaceChild(span_email, email.nextSibling );
-        } else {
+
+        } else if ( email.validity.typeMismatch ) {
             span_email.remove(); 
+            form.replaceChild(span_email, email.nextSibling);
+
+        } else {
+            span_email.remove();
         }
 
         if (password_value == "") {
-            
             form.replaceChild(span_password, password.nextSibling );
         } else {
             span_password.remove(); 
