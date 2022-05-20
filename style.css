@@ -106,6 +106,7 @@ footer {
 
 .form_input_invalid {
     border: 1px solid red;
+     background: url(images/icon-error.svg)  95% no-repeat;
 }
 
 .form_span_invalid {
