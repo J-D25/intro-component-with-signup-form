@@ -1,64 +1,45 @@
 const form = document.querySelector('form')
-const firstName = document.querySelector('#form_firstname');
-const lastName = document.querySelector('#form_lastname');
-const email = document.querySelector('#form_email');
-const password = document.querySelector('#form_password');
 const button = document.querySelector('#form_validate');
+const inputs = document.querySelectorAll("input");
+button.addEventListener("click", required);
 
-    const span_firstName = document.createElement("SPAN");
-    const text_firstName_span = document.createTextNode("First Name cannot be empty");
-    span_firstName.appendChild(text_firstName_span);
+function required() {
+    inputs.forEach((input) => {
+    const input_span = document.createElement("SPAN");
+    const input_placeholder = input.placeholder;
+    const cannot = " cannot be empty";
+    let input_span_text = document.createTextNode(input_placeholder + cannot)
+    input_span.appendChild(input_span_text);
+    if (input.validity.valueMissing) {
+        input.setAttribute("class", "form_input_invalid");
 
-    const span_lastName = document.createElement("SPAN");
-    const text_lastName_span = document.createTextNode("Last Name cannot be empty");
-    span_lastName.appendChild(text_lastName_span);
-
-    const span_email = document.createElement("SPAN");
-    const text_email_span = document.createTextNode("Look like this is not an email");
-    span_email.appendChild(text_email_span);
-
-    const span_password = document.createElement("SPAN");
-    const text_password_span = document.createTextNode("Password cannot be empty");
-    span_password.appendChild(text_password_span);
-
-button.addEventListener("click", required)
-
-function required(event) {
-    event.preventDefault()
-
-        var firstName_value = document.forms["formulaire"]["form_firstname"].value;
-        var lastName_value = document.forms["formulaire"]["form_lastname"].value;
-        var email_value = document.forms["formulaire"]["form_email"].value;
-        var password_value = document.forms["formulaire"]["form_password"].value;
-
-        if (firstName_value == "") {  
-            form.replaceChild(span_firstName, firstName.nextSibling );
-        } else {
-            span_firstName.remove(); 
+        form.replaceChild(input_span, input.nextSibling);
+        input_span.setAttribute("id", input.id+"_invalid");
+        input_span.setAttribute("class", "form_span_invalid");
+    } else {
+        input.removeAttribute("class", "form_input_invalid");
+        input_spanInvalid = document.getElementById(input.id+"_invalid");
+        if (input_spanInvalid) {
+            input_spanInvalid.remove();
         }
+    }
+  })
 
-        if (lastName_value == "") {
-            form.replaceChild(span_lastName, lastName.nextSibling );
-        } else {
-            span_lastName.remove(); 
-            console.log(email.validity);
-        }
+  let input = document.getElementById("form_email");
+  if (input.validity.typeMismatch) {
+      const email_span = document.createElement("SPAN");
+      const email_span_text = document.createTextNode("Looks like this is not an email");
+      email_span.appendChild(email_span_text);    
 
-        if (lastName_value == "") {
-            span_email.remove();
-            form.replaceChild(span_email, email.nextSibling );
-
-        } else if ( email.validity.typeMismatch ) {
-            span_email.remove(); 
-            form.replaceChild(span_email, email.nextSibling);
-
-        } else {
-            span_email.remove();
-        }
-
-        if (password_value == "") {
-            form.replaceChild(span_password, password.nextSibling );
-        } else {
-            span_password.remove(); 
-        }
+      input.setAttribute("class", "form_input_invalid");
+      form.replaceChild(email_span, input.nextSibling);
+      email_span.setAttribute("id", "form_email_invalid_type");
+      email_span.setAttribute("class", "form_span_invalid");
+  } else {
+      email_spanInvalid = document.getElementById('form_email_invalid_type');
+      if (email_spanInvalid) {
+        input.removeAttribute("class", "form_input_invalid");
+        email_spanInvalid.remove();
+      }
+  }
 }
