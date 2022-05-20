@@ -104,6 +104,18 @@ footer {
     display: none;
 }
 
+.form_input_invalid {
+    border: 1px solid red;
+}
+
+.form_span_invalid {
+    color: red;
+    font-style: italic;
+    text-align: right;
+    font-size: 0.7rem;
+    margin: 0;
+}
+
 @media screen and (max-width: 375px) {
     main {
         grid-template-columns: 1fr;
