@@ -21,9 +21,6 @@ const button = document.querySelector('#form_validate');
     const text_password_span = document.createTextNode("Password cannot be empty");
     span_password.appendChild(text_password_span);
 
-    console.log(email.validity);
-   
-
 button.addEventListener("click", required)
 
 function required(event) {
