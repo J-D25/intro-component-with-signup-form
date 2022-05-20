@@ -9,6 +9,18 @@ const button = document.querySelector('#form_validate');
     const text_firstName_span = document.createTextNode("First Name cannot be empty");
     span_firstName.appendChild(text_firstName_span);
 
+    const span_lastName = document.createElement("SPAN");
+    const text_lastName_span = document.createTextNode("Last Name cannot be empty");
+    span_lastName.appendChild(text_lastName_span);
+
+    const span_email = document.createElement("SPAN");
+    const text_email_span = document.createTextNode("email cannot be empty");
+    span_email.appendChild(text_email_span);
+
+    const span_password = document.createElement("SPAN");
+    const text_password_span = document.createTextNode("Password cannot be empty");
+    span_password.appendChild(text_password_span);
+
 
 
 button.addEventListener("click", required)
@@ -27,33 +39,26 @@ function required(event) {
         
         } else {
             span_firstName.remove(); 
-            console.log("ok");
         }
 
         if (lastName_value == "") {
-            const span_lastName = document.createElement("SPAN");
-            const text_lastName_span = document.createTextNode("Last Name cannot be empty");
-            span_lastName.appendChild(text_lastName_span);
+            
             form.replaceChild(span_lastName, lastName.nextSibling );
         } else {
-            console.log("ok");
+            span_lastName.remove(); 
         }
 
         if (email_value == "") {
-            const span_email = document.createElement("SPAN");
-            const text_email_span = document.createTextNode("email cannot be empty");
-            span_email.appendChild(text_email_span);
+            
             form.replaceChild(span_email, email.nextSibling );
         } else {
-            console.log("ok"); 
+            span_email.remove(); 
         }
 
         if (password_value == "") {
-            const span_password = document.createElement("SPAN");
-            const text_password_span = document.createTextNode("Password cannot be empty");
-            span_password.appendChild(text_password_span);
+            
             form.replaceChild(span_password, password.nextSibling );
         } else {
-            console.log("ok");
+            span_password.remove(); 
         }
 }
