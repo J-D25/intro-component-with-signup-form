@@ -104,6 +104,14 @@ footer {
     display: none;
 }
 
+input {
+    background: url(images/icon-error.svg)  95% no-repeat;
+}
+
+#form_validate {
+    background-image: none;
+}
+
 @media screen and (max-width: 375px) {
     main {
         grid-template-columns: 1fr;
